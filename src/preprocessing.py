@@ -24,3 +24,5 @@ class ImagePreprocessor:
             image_tensor = image_tensor.to(device)
             embedding = model(image_tensor).squeeze().cpu().numpy()
         return embedding.flatten()
+
+

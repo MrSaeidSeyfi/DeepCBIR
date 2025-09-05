@@ -44,7 +44,7 @@ pip install -r requirements.txt
 ### Command Line Interface
 
 ```bash
-python main.py --folder /path/to/image/folder --query /path/to/query/image --topk 5
+python main.py --folder /images_directory --query /query_image_path --topk 5
 ```
 
 ### Parameters
@@ -57,28 +57,6 @@ python main.py --folder /path/to/image/folder --query /path/to/query/image --top
 
 ```bash
 python main.py --folder data/images --query query.jpg --topk 10
-```
-
-## API Usage
-
-You can also use the CBIR system programmatically:
-
-```python
-from src.cbir_system import CBIRSystem
-
-# Initialize the system
-cbir_system = CBIRSystem()
-
-# Search for similar images
-results = cbir_system.search(
-    folder_path="data/images",
-    query_path="query.jpg",
-    top_k=5
-)
-
-# Results contain (image_path, similarity_score) tuples
-for path, score in results:
-    print(f"{path}: {score:.4f}")
 ```
 
 ## Supported Image Formats
@@ -100,6 +78,3 @@ for path, score in results:
 - Efficient batch processing for large image collections
 - Memory-optimized embedding extraction
 
-## License
-
-[Add your license information here]

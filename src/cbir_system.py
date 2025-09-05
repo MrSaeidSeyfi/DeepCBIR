@@ -32,3 +32,5 @@ class CBIRSystem:
             print(f"{path} — Similarity: {score:.4f}")
         
         return results
+
+

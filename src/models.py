@@ -15,3 +15,5 @@ class ImageEmbeddingModel:
     
     def get_device(self):
         return self.device
+
+

@@ -31,3 +31,5 @@ class SimilaritySearch:
         similarities = cosine_similarity([query_embedding], all_embeddings)[0]
         indices = np.argsort(similarities)[::-1][:top_k]
         return [(image_paths[i], similarities[i]) for i in indices]
+
+
