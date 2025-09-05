@@ -13,9 +13,9 @@ DeepCBIR/
 │   ├── similarity.py      # Similarity search functionality
 │   └── cbir_system.py     # Main CBIR system orchestrator
 ├── main.py                # Command-line interface
+├── app.py                 # Gradio web interface
 ├── requirements.txt       # Python dependencies
 ├── README.md             # Project documentation
-└── data/                 # Image dataset directory
 ```
 
 ## Features
@@ -30,7 +30,7 @@ DeepCBIR/
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/MrSaeidSeyfi/DeepCBIR
 cd DeepCBIR
 ```
 
@@ -41,7 +41,19 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Command Line Interface
+### 🌐 Web Interface
+
+Launch the Gradio web interface for an easy-to-use graphical interface:
+
+
+```bash
+python gradio_app.py
+```
+
+The web interface will be available at `http://localhost:7860` and provides graphical tools for searching similar images.
+
+
+### 💻 Command Line Interface
 
 ```bash
 python main.py --folder /images_directory --query /query_image_path --topk 5

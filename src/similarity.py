@@ -14,16 +14,23 @@ class SimilaritySearch:
         embeddings = []
         image_paths = []
         
-        for filename in tqdm(os.listdir(folder_path), desc="Processing images"):
-            if filename.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp')):
-                full_path = os.path.join(folder_path, filename)
-                try:
-                    tensor = self.preprocessor.preprocess_image(full_path)
-                    emb = self.preprocessor.get_embedding(self.model.model, tensor, self.device)
-                    embeddings.append(emb)
-                    image_paths.append(full_path)
-                except Exception as e:
-                    print(f"Skipped {full_path}: {e}")
+        # Get all image files recursively from all subdirectories
+        image_files = []
+        for root, dirs, files in os.walk(folder_path):
+            for file in files:
+                if file.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp')):
+                    image_files.append(os.path.join(root, file))
+        
+        print(f"Found {len(image_files)} images in folder and subdirectories")
+        
+        for full_path in tqdm(image_files, desc="Processing images"):
+            try:
+                tensor = self.preprocessor.preprocess_image(full_path)
+                emb = self.preprocessor.get_embedding(self.model.model, tensor, self.device)
+                embeddings.append(emb)
+                image_paths.append(full_path)
+            except Exception as e:
+                print(f"Skipped {full_path}: {e}")
         
         return np.array(embeddings), image_paths
     
