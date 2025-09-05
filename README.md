@@ -47,7 +47,7 @@ Launch the Gradio web interface for an easy-to-use graphical interface:
 
 
 ```bash
-python gradio_app.py
+python app.py
 ```
 
 The web interface will be available at `http://localhost:7860` and provides graphical tools for searching similar images.
