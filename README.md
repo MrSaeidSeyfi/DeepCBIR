@@ -25,6 +25,8 @@ DeepCBIR/
 - **Batch Processing**: Processes entire folders of images
 - **GPU Support**: Automatic GPU acceleration when available
 - **Modular Design**: Clean, maintainable code structure
+- **Recursive Path Search**: Automatically searches in given paths and all subdirectories for images
+- **Dual Run Modes**: Can be run either from the console or through a Gradio web app
 
 ## Installation
 
@@ -41,7 +43,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-### 🌐 Web Interface
+###  Web Interface
 
 Launch the Gradio web interface for an easy-to-use graphical interface:
 
@@ -53,7 +55,7 @@ python app.py
 The web interface will be available at `http://localhost:7860` and provides graphical tools for searching similar images.
 
 
-### 💻 Command Line Interface
+###  Command Line Interface
 
 ```bash
 python main.py --folder /images_directory --query /query_image_path --topk 5
@@ -77,16 +79,5 @@ python main.py --folder data/images --query query.jpg --topk 10
 - PNG (.png)
 - BMP (.bmp)
 
-## Technical Details
 
-- **Model**: ResNet50 pre-trained on ImageNet
-- **Feature Extraction**: 2048-dimensional embeddings from the penultimate layer
-- **Similarity Metric**: Cosine similarity
-- **Image Preprocessing**: Resize to 224x224, normalize with ImageNet statistics
-
-## Performance
-
-- GPU acceleration automatically enabled when CUDA is available
-- Efficient batch processing for large image collections
-- Memory-optimized embedding extraction
 
